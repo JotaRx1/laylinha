@@ -181,6 +181,46 @@ volumeMusica.addEventListener("input", () => {
   musicaFundo.volume = volumeMusica.value;
 });
 
+function atualizarTempoJuntos() {
+  const inicioRelacionamento = new Date('2024-04-09T00:00:00');
+  const agora = new Date();
+
+  let diff = agora - inicioRelacionamento; // diferença em ms
+
+  // Cálculo das unidades
+  const segundos = Math.floor(diff / 1000) % 60;
+  const minutos = Math.floor(diff / (1000 * 60)) % 60;
+  const horas = Math.floor(diff / (1000 * 60 * 60)) % 24;
+
+  // Para calcular dias, meses e anos certinho, vamos usar Date para ajustar meses com diferentes dias
+  let anos = agora.getFullYear() - inicioRelacionamento.getFullYear();
+  let meses = agora.getMonth() - inicioRelacionamento.getMonth();
+  let dias = agora.getDate() - inicioRelacionamento.getDate();
+
+  if (dias < 0) {
+    meses--;
+    // Ajusta dias pegando o último dia do mês anterior
+    const ultimoDiaMesAnterior = new Date(agora.getFullYear(), agora.getMonth(), 0).getDate();
+    dias += ultimoDiaMesAnterior;
+  }
+
+  if (meses < 0) {
+    anos--;
+    meses += 12;
+  }
+
+  // Monta a string do tempo juntos
+  const texto = `${anos} ano${anos !== 1 ? 's' : ''}, ${meses} mês${meses !== 1 ? 'es' : ''}, ${dias} dia${dias !== 1 ? 's' : ''}, ` +
+                `${horas.toString().padStart(2,'0')}h:${minutos.toString().padStart(2,'0')}m:${segundos.toString().padStart(2,'0')}s`;
+
+  document.getElementById('tempoJuntos').textContent = texto;
+}
+
+// Atualiza imediatamente e depois a cada segundo
+atualizarTempoJuntos();
+setInterval(atualizarTempoJuntos, 1000);
+
+
 
 
 
