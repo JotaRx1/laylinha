@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <title>Brincadeiras do Amor</title>
+  <link rel="stylesheet" href="style.css" />
+  <script defer src="script.js"></script>
+</head>
+<body>
+  <div class="container grande">
+    <h1>Duvido acertar em</h1>
+
+    <!-- Quem ama mais -->
+    <section id="quem-ama-mais" style="position: relative; height: 150px; margin-top: 30px;">
+      <h2>Quem ama mais?</h2>
+      <button id="btn-jota">Jota 💖</button>
+      <button id="btn-layla" style="position: absolute; left: 150px; top: 50px;">Layla 🌹</button>
+      <div id="mensagemQuemAmaMais" style="margin-top: 20px; font-weight: bold; color: #ff4081;"></div>
+    </section>
+
+    <!-- Quiz: Quem é mais? -->
+    <section id="quiz">
+      <h2>🧠 Quem é mais...?</h2>
+      <p id="perguntaQuem"></p>
+      <div class="quiz-botoes">
+        <button onclick="responderQuem('Layla')">Layla 😍</button>
+        <button onclick="responderQuem('Jota')">Jota 😎</button>
+      </div>
+    </section>
+
+    <!-- Medidor do Amor -->
+    <section id="medidor-amor">
+      <h2>💓 Medidor de Amor</h2>
+      <input type="range" min="0" max="100" value="50" id="amorRange">
+      <p id="resultadoAmor">50% de amor</p>
+      <p id="mensagemAmor"></p>
+    </section>
+
+    <!-- Álbum de Fotos -->
+    <section id="album-fotos">
+      <h2>📸 Nossas Fotinhas</h2>
+      <div class="album">
+        <img src="fotinhas/imagem1.png" alt="Foto 1">
+        <img src="fotinhas/imagem2.png" alt="Foto 2">
+        <img src="fotinhas/imagem3.png" alt="Foto 3">
+        <!-- Adicione mais fotos conforme quiser -->
+      </div>
+    </section>
+
+    <!-- Roleta do Amor -->
+    <section id="roleta-amor">
+      <h2>🎲 Gira aii</h2>
+      <button onclick="girarRoleta()">Girar</button>
+      <p id="resultadoRoleta"></p>
+    </section>
+
+    <!-- Roleta de Filmes e Animes Românticos -->
+    <section id="roleta-filmes">
+      <h2>🎥 Roleta de Filmes e Animes Românticos</h2>
+      <button onclick="girarRoletaRomantica()">Sortear</button>
+      <p id="resultadoRoletaRomantica" style="font-weight: bold; color: #e91e63;"></p>
+    </section>
+
+    <!-- Mural de Textinhos -->
+    <section id="mural-textinhos">
+      <h2>💌 Little textos para vc</h2>
+      <div class="mural-textinhos">
+        <p>Desde o dia que você chegou na minha vida, tudo ficou mais bonito e começou a fazer sentido</p>
+        <p>Você é meu porto seguro, meu amor, minha melhor escolha todos os dias.</p>
+        <p>Eu te amo mais do que consigo explicar com palavras.</p>
+        <p>Obrigado por cada momento ao seu lado, cada risada e cada abraço.</p>
+        <p>O meu melhor amigo é o meu amor, nunca foi tão verdadeiroo</p>
+      </div>
+    </section>
+
+    <!-- Controle de música -->
+    <button id="botaoMusica">🔈 Ouvir música de fundo</button>
+    <br />
+    <label for="volumeMusica" style="color: #b30059; font-weight: bold;">Volume:</label>
+    <input type="range" id="volumeMusica" min="0" max="1" step="0.01" value="0.5" />
+
+    <!-- Áudio: apenas um elemento -->
+    <audio id="musicaFundo" src="audio/musica.mp3" autoplay loop muted></audio>
+  </div>
+
+  <!-- Flores decorativas - fora do container -->
+  <div class="flores-fundo">
+    <svg class="flor" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="32" cy="32" r="10" fill="#ff66b2" />
+      <circle cx="32" cy="12" r="6" fill="#ff99cc" />
+      <circle cx="52" cy="32" r="6" fill="#ff99cc" />
+      <circle cx="32" cy="52" r="6" fill="#ff99cc" />
+      <circle cx="12" cy="32" r="6" fill="#ff99cc" />
+    </svg>
+    <svg class="flor" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="32" cy="32" r="10" fill="#ff66b2" />
+      <circle cx="32" cy="12" r="6" fill="#ff99cc" />
+      <circle cx="52" cy="32" r="6" fill="#ff99cc" />
+      <circle cx="32" cy="52" r="6" fill="#ff99cc" />
+      <circle cx="12" cy="32" r="6" fill="#ff99cc" />
+    </svg>
+  </div>
+
+  <!-- Corações de fundo -->
+  <div class="coracoes-fundo">
+    <span class="coracao" style="left:10%; animation-delay: 0s;"></span>
+    <span class="coracao" style="left:40%; animation-delay: 2s;"></span>
+    <span class="coracao" style="left:70%; animation-delay: 4s;"></span>
+    <span class="coracao" style="left:85%; animation-delay: 1s;"></span>
+  </div>
+
+  <!-- Nuvens decorativas -->
+<div class="nuvens-fundo">
+  <div class="nuvem nuvem1"></div>
+  <div class="nuvem nuvem2"></div>
+</div>
+
+
+</body>
+</html>

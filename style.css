@@ -1,0 +1,353 @@
+body {
+  font-family: 'Arial', sans-serif;
+  background: linear-gradient(135deg, #fff0f5 0%, #ffe6f0 100%);
+  color: #b30059;
+  text-align: center;
+  padding: 30px;
+  position: relative;
+  overflow-x: hidden; /* evita scroll horizontal por causa das flores */
+}
+
+/* Container principal */
+.container {
+  max-width: 800px;
+  margin: auto;
+  background: rgba(255, 230, 240, 0.9);
+  padding: 40px;
+  border-radius: 25px;
+  box-shadow: 0 0 20px #ff99cc;
+  position: relative;
+  z-index: 10; /* fica acima das flores e corações */
+}
+
+.grande {
+  max-width: 1000px;
+}
+
+.botao, button {
+  background-color: #ff66b2;
+  color: white;
+  padding: 12px 24px;
+  margin: 10px;
+  border: none;
+  border-radius: 12px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: box-shadow 0.3s ease;
+}
+
+button:hover {
+  box-shadow: 0 0 12px #ff66b2;
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+input[type="range"] {
+  width: 80%;
+  margin-top: 10px;
+}
+
+textarea {
+  width: 90%;
+  border-radius: 10px;
+  border: 1px solid #ff66b2;
+  padding: 10px;
+  font-size: 1rem;
+}
+
+/* Layout do quiz quem ama mais */
+.quem-ama {
+  position: relative;
+  height: 100px;
+}
+
+#btn-jota {
+  position: relative;
+}
+
+#btn-layla {
+  position: absolute;
+  top: 10px;
+  left: 200px;
+  transition: all 0.3s ease;
+}
+
+.quiz-botoes {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 10px;
+}
+
+.album {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 15px;
+}
+
+.album img {
+  width: 180px;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 15px;
+  border: 3px solid #ff66b2;
+  box-shadow: 0 0 8px #ffa3c2;
+}
+
+.mural-textinhos p {
+  background: #ffe0f0;
+  padding: 12px;
+  border-radius: 12px;
+  margin-bottom: 12px;
+  box-shadow: 0 0 5px #ff99cc;
+  font-style: italic;
+  color: #b30059;
+  font-size: 1rem;
+  text-align: left;
+}
+
+/* Títulos com sombra e animação */
+h1, h2 {
+  text-shadow: 0 0 8px #ff99cc;
+  animation: fadeInText 2s ease forwards;
+  opacity: 0;
+}
+
+@keyframes fadeInText {
+  to { opacity: 1; }
+}
+
+/* Botão enviar específico */
+#botaoEnviar {
+  position: relative;
+  background: #ff4081;
+  color: white;
+  border-radius: 30px;
+  padding: 10px 25px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: transform 0.3s ease;
+}
+
+#botaoEnviar:hover {
+  animation: bateCoracao 0.6s infinite;
+}
+
+@keyframes bateCoracao {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+}
+
+/* --- FLORES DECORATIVAS --- */
+.flores-fundo {
+  position: fixed; /* fica fixo na tela */
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none; /* não bloqueia cliques */
+  overflow: visible;
+  z-index: 0; /* atrás do conteúdo */
+}
+
+.flores-fundo .flor {
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  opacity: 0.15; /* leve e suave */
+  filter: drop-shadow(0 0 4px #ff66b2);
+  animation: leve-flutuar 6s ease-in-out infinite;
+}
+
+.flores-fundo .flor:nth-child(1) {
+  top: 10%;
+  left: 10%;
+  animation-delay: 0s;
+}
+
+.flores-fundo .flor:nth-child(2) {
+  top: 70%;
+  left: 75%;
+  animation-delay: 3s;
+}
+
+@keyframes leve-flutuar {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* --- CORAÇÕES ANIMADOS NO FUNDO --- */
+.coracoes-fundo {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100vw;
+  height: 150px;
+  pointer-events: none;
+  overflow: visible;
+  z-index: 0; /* atrás do conteúdo */
+}
+
+/* --- CORAÇÕES ANIMADOS NO FUNDO (mais visíveis e fofos) --- */
+.coracao {
+  position: absolute;
+  bottom: -40px;
+  width: 30px;
+  height: 30px;
+  background: #ff66b2ee; /* mais opacidade */
+  clip-path: polygon(
+    50% 0%, 61% 15%, 75% 15%, 85% 25%, 85% 40%, 75% 55%, 
+    50% 80%, 25% 55%, 15% 40%, 15% 25%, 25% 15%, 39% 15%
+  );
+  animation: subir 7s linear infinite;
+  opacity: 0.85; /* mais visível */
+  filter: drop-shadow(0 0 6px #ff66b2);
+  transform-origin: center;
+  animation-timing-function: ease-in-out;
+}
+
+/* posições e atrasos */
+.coracao:nth-child(1) {
+  left: 10%;
+  animation-delay: 0s;
+  animation-duration: 6.5s;
+}
+.coracao:nth-child(2) {
+  left: 40%;
+  animation-delay: 2.5s;
+  animation-duration: 7.5s;
+}
+.coracao:nth-child(3) {
+  left: 70%;
+  animation-delay: 4.5s;
+  animation-duration: 7s;
+}
+.coracao:nth-child(4) {
+  left: 85%;
+  animation-delay: 1s;
+  animation-duration: 6.8s;
+}
+
+@keyframes subir {
+  0% {
+    bottom: -40px;
+    opacity: 0.85;
+    transform: scale(1) rotate(0deg);
+  }
+  50% {
+    transform: scale(1.1) rotate(10deg);
+  }
+  100% {
+    bottom: 110vh;
+    opacity: 0;
+    transform: scale(1) rotate(0deg);
+  }
+}
+
+/* --- NUVENS DECORATIVAS ANIMADAS --- */
+.nuvens-fundo {
+  position: fixed;
+  top: 10%;
+  left: 0;
+  width: 100vw;
+  height: 150px;
+  pointer-events: none;
+  overflow: visible;
+  z-index: 1; /* entre o fundo e container */
+  filter: drop-shadow(0 0 5px #ffffffaa);
+}
+
+.nuvem {
+  position: absolute;
+  background: #fff;
+  background: linear-gradient(135deg, #fff 60%, #e0e0e0 100%);
+  border-radius: 50px;
+  opacity: 0.7;
+  filter: drop-shadow(0 0 4px #fff);
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+
+.nuvem::before,
+.nuvem::after {
+  content: "";
+  position: absolute;
+  background: inherit;
+  border-radius: 50px;
+  filter: inherit;
+}
+
+/* tamanhos e posições nuvens */
+.nuvem1 {
+  width: 140px;
+  height: 60px;
+  top: 20px;
+  left: -150px;
+  animation: moverNuvem 30s linear infinite;
+}
+
+.nuvem1::before {
+  width: 80px;
+  height: 80px;
+  top: -30px;
+  left: 10px;
+  background: inherit;
+}
+
+.nuvem1::after {
+  width: 100px;
+  height: 100px;
+  top: -40px;
+  left: 70px;
+  background: inherit;
+}
+
+.nuvem2 {
+  width: 100px;
+  height: 45px;
+  top: 70px;
+  left: -100px;
+  animation: moverNuvem 35s linear infinite;
+  animation-delay: 15s;
+}
+
+.nuvem2::before {
+  width: 60px;
+  height: 60px;
+  top: -20px;
+  left: 10px;
+  background: inherit;
+}
+
+.nuvem2::after {
+  width: 80px;
+  height: 80px;
+  top: -25px;
+  left: 50px;
+  background: inherit;
+}
+
+@keyframes moverNuvem {
+  0% {
+    transform: translateX(0);
+    opacity: 0.7;
+  }
+  50% {
+    opacity: 0.9;
+  }
+  100% {
+    transform: translateX(120vw);
+    opacity: 0.7;
+  }
+}
+
